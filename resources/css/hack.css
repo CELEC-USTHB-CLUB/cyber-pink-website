@@ -1,0 +1,182 @@
+@font-face{
+    font-family: "HACKED" ;
+    src: url("../fonts/Hacked-KerX.ttf") format("truetype");
+}
+@font-face{
+    font-family: "Source Code Pro Medium";
+    src: url("../fonts/SourceCodePro-Medium.ttf") format("truetype");
+
+}
+body{
+    background-color: #0d0036;
+}
+#registration{
+    height: 100vh;
+}
+/*gauche*/
+.gauche{
+    background-image: url("../images/event.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+/*droite*/
+.droite{
+    height: 100vh;
+}
+.btn{
+    font-family: 'Source Code Pro Medium';
+    font-size: 1.5em;
+    font-weight: 500;
+    color: white;
+    padding: 20px 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.3s;
+    background: linear-gradient(#2b369e, #ff5db8); 
+}
+.btn1{
+    margin-left: 30%;
+    margin-top: 10%;
+
+}
+/*step form*/
+#regForm {
+    background-color: #0d0036;
+    margin: 100px auto;
+    font-family: 'Source Code Pro Medium';
+    padding: 40px;
+    width: 100%;
+  }
+  
+  .tab input {
+      border-color: #2b369e;
+      border-width: 3px;
+      outline: none;
+      text-decoration: none;
+      background-color: #0d0036;
+      color: white;
+      font-size: 20px;
+      font-family: 'Source Code Pro Medium';
+      box-shadow: 4px #2b369e;
+      margin-bottom: 5%;
+  }
+  input.invalid {
+    background-color: #ff5db8;
+  }
+  .tab {
+    display: none;
+  }
+  .tab input:hover{
+    border-color: #2b369e;
+    border-width: 3px;
+    outline: none;
+    text-decoration: none;
+    background: none;
+    color: white;
+    font-size: 20px;
+    font-family: 'Source Code Pro Medium';
+    box-shadow: 4px #2b369e;
+    margin-bottom: 5%;
+  }
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  #prevBtn {
+    background-color: #bbbbbb;
+  }
+  .step {
+    height: 50px;
+    width: 50px;
+    margin: 0 2px;
+    background-color: #ff5db8;
+    border: none;  
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-family: 'Source Code Pro Medium';
+    font-size: 30px;
+  }
+  
+  .step.active {
+    opacity: 1;
+  }
+  .step.finish {
+    background-color: #2b369e;
+  }
+  /*box checked*/
+  #sarah{
+    display: none;
+  }
+  #adherent:checked ~#sarah{
+    display:inline-block;
+  }
+
+  /*ajouter une photo*/
+  #custom-button{
+
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 7px;
+    background-color: #160452;
+    opacity: 90%;
+    border: none;
+    font-size: 19px;
+    outline: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.15s;
+
+}
+
+
+
+
+/*responsive*/
+@media screen and (min-width: 0px) and (max-width: 414px) {
+  .btn1{
+    margin-left: 10%;
+    margin-top: -35%;
+  }
+    .step {
+      height: 40px;
+      width: 40px;
+      margin: 0 2px;
+      background-color: #ff5db8;
+      border: none;  
+      border-radius: 50%;
+      display: inline-block;
+      opacity: 0.5;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      font-family: 'Source Code Pro Medium';
+      font-size: 20px;
+    }
+    .gauche{
+      background-image: url("../images/event.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 100vh;
+  }
+
+}
+@media screen and (min-width: 415px) and (max-width: 762px) {
+  .btn1{
+    margin-left: 25%;
+    margin-top: -25%;
+
+}
+.gauche{
+  background-image: url("../images/event.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+ 
+
+}
