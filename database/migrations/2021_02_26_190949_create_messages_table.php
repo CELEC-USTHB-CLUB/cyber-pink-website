@@ -13,7 +13,7 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('cyber_pink_messages', function (Blueprint $table) {
             $table->id();
             $table->string("fullname");
             $table->string("email");

@@ -40,4 +40,8 @@ class AdminController extends Controller {
     public function showOrganizers() {
         return view("admin.organizers"); 
     }
+
+    public function messages() {
+        return view("admin.messages"); 
+    }
 }

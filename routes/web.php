@@ -32,4 +32,5 @@ Route::prefix("admin")->group(function() {
 	Route::get("workshop", [AdminController::class, "showWorkshop"])->middleware("auth");
 	Route::get("sponsors", [AdminController::class, "showSponsors"])->middleware("auth");
 	Route::get("organizers", [AdminController::class, "showOrganizers"])->middleware("auth");
+	Route::get("messages", [AdminController::class, "messages"])->middleware("auth");
 });

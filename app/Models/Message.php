@@ -10,5 +10,6 @@ class Message extends Model
     use HasFactory;
     protected $fillable = ["fullname", "email", "message"];
     public $timestamps = true;
+    public $table = "cyber_pink_messages";
 
 }
