@@ -16,8 +16,8 @@ body{
 }
 /*gauche*/
 .gauche{
-    background-image: url("../images/event.png");
-    background-size: cover;
+    background-image: url("../images/workshop.png");
+    background-size: contain;
     background-repeat: no-repeat;
     height: 100vh;
 }
@@ -37,9 +37,8 @@ body{
     background: linear-gradient(#2b369e, #ff5db8); 
 }
 .btn1{
-    margin-left: 30%;
     margin-top: 15%;
-
+    position:center;
 }
 .form ::placeholder{
 	font-family: 'Source Code Pro Medium';
@@ -106,9 +105,9 @@ body{
 
 /*responsive*/
 @media screen and (min-width: 0px) and (max-width: 414px) {
-    .btn1{
+  /*  .btn1{
       margin-left: 10%;
-  }
+  }*/
   .gauche{
     background-image: url("../images/event.png");
     background-size: contain;
@@ -117,9 +116,9 @@ body{
 }
 }
 @media screen and (min-width: 415px) and (max-width: 762px) {
-    .btn1{
+  /*  .btn1{
       margin-left: 25%;
-  }
+  }*/
   .gauche{
     background-image: url("../images/event.png");
     background-size: contain;

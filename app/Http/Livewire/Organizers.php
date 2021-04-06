@@ -13,6 +13,7 @@ class Organizers extends TableComponent {
 	use HtmlComponents;
 
 	public $loadingIndicator = true;
+	public $exports = ["xlsx"];
 
     public function query() : Builder {
         return Organizer::whereRaw("1 = 1");
@@ -23,6 +24,8 @@ class Organizers extends TableComponent {
     		Column::make("ID")->sortable(),
     		Column::make("email")->searchable()->format(function(Organizer $model) {
     			return $this->mailto($model->email);
+    		})->exportFormat(function(Organizer $model) {
+    		    return $model->email;
     		}),
     		Column::make("university"),
     		Column::make("club"),

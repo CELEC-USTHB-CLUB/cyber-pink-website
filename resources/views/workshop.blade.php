@@ -33,41 +33,54 @@
               @endif
             <div class="row">
                 <!--*****************partie gauche*******************-->
-                <div class="col-md-6 col-12 gauche">
+                <div class="col-lg-6 col-12 gauche">
 
                 </div>
                 <!--*****************partie gauche*******************-->
-                <div class="col-md-6 col-12 droite">
+                <div class="col-lg-6 col-12 droite">
                     <div class="row">
-                      <div class="col-md-3 col-12 btn1">           
+                      <div class="col-lg-12 offset-lg-2 col-12 btn1">           
                           <a href="#" class="btn">WORKSHOP</a>
                       </div>
-                      <div class="col-md-6 col-12 form">
+                      <div class="col-lg-6 col-6 form">
                           <div class="mb-3" style="padding-top: 20%;">
                               <input name="fullname" type="text" class="form-control" id="exampleFormControlInput1" placeholder="FULL NAME" style="height: 70px;">
                           </div>
                       </div>
-                      <div class="col-md-6 col-12 form">
+                      <div class="col-lg-6 col-6 form">
                           <div class="mb-3" style="padding-top: 20%;">
                               <input name="birthdate" type="date" class="form-control" id="exampleFormControlInput1" placeholder="DATE OF BIRTH" style="height: 70px;">
                           </div>
                       </div>
-                      <div class="col-md-6 col-12 form">
+                      <div class="col-lg-6 col-6 form">
                           <div class="mb-3" style="padding-top: 10%;">
                               <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="EMAIL" style="height: 70px;">
                           </div>
                       </div>
-                      <div class="col-md-6 col-12 form">
+                      <div class="col-lg-6 col-6 form">
                           <div class="mb-3" style="padding-top: 10%;">
-                              <input name="phone" value="0" type="text" class="form-control" id="exampleFormControlInput1" placeholder="PHONE NUMBER" style="height: 70px;">
+                              <input name="phone"  type="text" class="form-control" id="exampleFormControlInput1" placeholder="PHONE NUMBER" style="height: 70px;">
                           </div>
                       </div>
-                      <div class="col-md-6 col-12 form">
+                      <div class="col-lg-6 col-6 form">
                           <div class="mb-3" style="padding-top: 10%;">
                               <input name="motivation" type="text" class="form-control" id="exampleFormControlInput1" placeholder="MOTIVATION" style="height: 70px;">
                           </div>
                       </div>
-                      <div class="col-md-6 col-12 form">
+                      <div class="col-lg-6 col-6 form">
+                          <div class="mb-3">
+                                    <label for="Nom"
+                                        style="font-family: 'Source Code Pro Medium';font-size: 1.5em; color: rgba(255, 255, 255, 0.7);">
+                                        Do you have web development skills ? </label>
+                                        <br/>
+                                    <input class="vous" type="radio" name="skills" value="true" id="yes" />
+                                    <span style="font-family: 'Source Code Pro Medium';font-size: 1.5em; color: rgba(255, 255, 255, 0.7);"> YES </span>
+                                   
+                                    <input class="vous" type="radio" name="skills" value="false" id="no" />
+                                    <span style="font-family: 'Source Code Pro Medium';font-size: 1.5em; color: rgba(255, 255, 255, 0.7);"> NO </span> 
+                                </div>
+                      </div>
+                      <div class="col-lg-6 col-6 form">
                           <div class="mb-3" style="padding-top: 10%;">
                               <select name="size" class="custom-select">
                                 <option value="">T-SHIRT size</option>
@@ -80,7 +93,7 @@
                               </select>
                           </div>
                       </div>
-                      <div class="col-md-4 offset-md-8 col-12">
+                      <div class="col-lg-4 offset-lg-8 col-6">
                           <button class="btn3"type="submit"> SUBMIT </button>
                       </div>
                       

@@ -13,6 +13,7 @@ class Sponsors extends TableComponent {
 	use HtmlComponents;
 
 	public $loadingIndicator = true;
+	public $exports = ["xlsx"];
 
     public function query() : Builder {
         return Sponsor::whereRaw("1 = 1");
@@ -23,6 +24,8 @@ class Sponsors extends TableComponent {
     		Column::make("ID")->sortable(),
     		Column::make("email")->searchable()->format(function(Sponsor $model) {
     			return $this->mailto($model->email);
+    		})->exportFormat(function(Sponsor $model) {
+    		    return $model->email;
     		}),
     		Column::make("letter"),
     		Column::make("created_at")->sortable()

@@ -7,18 +7,22 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrganizerController;
 use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\SposorController;
+use App\Http\Controllers\SubmissionsController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, "index"]);
 Route::get('/hack', [HomeController::class, "showHack"]);
 Route::get('/workshop', [HomeController::class, "showWorkshop"]);
+Route::get("/challenges", [HomeController::class, "showChallenges"]);
 
 Route::post("sponsorCreate", [SposorController::class, "create"]);
 Route::post("organizerCreate", [OrganizerController::class, "create"]);
 Route::post("contact", [ContactController::class, "create"]);
 Route::post("createParticipant", [ParticipantController::class, "create"]);
 Route::post("createHacker", [HackerController::class, "create"]);
+Route::get("submit", [SubmissionsController::class, "index"]);
+Route::get("modify/{code}", [SubmissionsController::class, "modify"]);
 
 Route::get("migrate", function() {
 	dd(Artisan::call("migrate"));

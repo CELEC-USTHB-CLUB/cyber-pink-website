@@ -27,15 +27,15 @@
     <div class="container-fluid" id="registration">
         <div class="row">
             <!--*****************partie gauche*******************-->
-            <div class="col-md-6 gauche">
+            <div class="col-lg-6 col-12 gauche">
             </div>
             <!--*****************partie gauche*******************-->
-            <div class="col-md-6">
+            <div class="col-lg-6 col-12">
                 <div class="row">
-                    <div class="col-md-3 col-12 btn1">
+                    <div class="col-lg-3 col-12 btn1">
                         <a href="#" class="btn">HACKATHON</a>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-lg-12">
                         @if ($errors->any())
                             <div class="alert alert-danger mt-5" id="errors" role="alert">
                                  <ul>
@@ -54,8 +54,20 @@
                                         placeholder="FULL NAME" style="height: 50px;">
                                     <input name="email" type="email" class="form-control" id="exampleFormControlInput1"
                                         placeholder="EMAIL" style="height: 50px;">
+                                    <input name="phone" type="text" class="form-control" id="exampleFormControlInput1"
+                                        placeholder="PHONE NUMBER" style="height: 50px;">
+                                    <input name="skills" type="text" class="form-control" id="exampleFormControlInput1"
+                                        placeholder="SKILLS (use , to separate between them)" style="height: 50px;">
                                     <input name="university" type="text" class="form-control" id="exampleFormControlInput1"
                                         placeholder="UNIVERSITY" style="height: 50px;">
+                                    <select name="study_level" class="custom-select">
+                                        <option value="">Level</option>
+                                        <option value="licence">Licence</option>
+                                        <option value="master">Master</option>
+                                        <option value="doctorat">Doctorat</option>
+                                        <option value="other">Other</option>
+                                     </select>
+                                     
                                 </div>
                             </div>
                             <!--step2-->
@@ -114,13 +126,12 @@
                                     <label for="Nom"
                                         style="font-family: 'Source Code Pro Medium';font-size: 1.5em; color: rgba(255, 255, 255, 0.7);">
                                         WILL YOU BE ABLE TO STAY OVERNIGHT FOR 3 DAY HACKATHON? </label>
-                                    <input class="vous" type="radio" name="stay_at_night" value="true" id="yes" /><span
-                                        style="font-family: 'Source Code Pro Medium';font-size: 1.5em; color: rgba(255, 255, 255, 0.7);">
-                                        YES </span>
-                                    <input class="vous" type="radio" name="stay_at_night" value="false" id="no" /><span
-                                        style="font-family: 'Source Code Pro Medium';font-size: 1.5em; color: rgba(255, 255, 255, 0.7);">
-                                        NO
-                                    </span>
+                                        <br/>
+                                    <input class="vous" type="radio" name="stay_at_night" value="true" id="yes" />
+                                    <span style="font-family: 'Source Code Pro Medium';font-size: 1.5em; color: rgba(255, 255, 255, 0.7);"> YES </span>
+                                   
+                                    <input class="vous" type="radio" name="stay_at_night" value="false" id="no" />
+                                    <span style="font-family: 'Source Code Pro Medium';font-size: 1.5em; color: rgba(255, 255, 255, 0.7);"> NO </span> 
                                     <input name="motivation" type="text" class="form-control" id="exampleFormControlInput1"
                                         placeholder="MOTIVATION" style="height: 50px;">
                                 </div>

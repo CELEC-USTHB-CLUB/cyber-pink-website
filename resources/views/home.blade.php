@@ -21,32 +21,7 @@
   </head>
   <body>        
         <!--*************** NavBar ***************-->
-        <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #0d0036;" >
-          <a class="navbar-brand" href="#"><img src="resources/images/2.png" ></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span style="color: white;"><i class="fas fa-bars"></i></span> 
-          </button>
-    
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="#home"> HOME <span class="sr-only"></span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#gallerie" > GALLERIE</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#become" > BECOME SPONSOR </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#become" > BECOME AN ORGANIZER </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#contact" > CONTACT</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <x-navbar/>
         <!--*************** Home ***************-->
         <div class="container-fluid " id="home">
             <div class="row">
@@ -69,7 +44,7 @@
         <div class="container-fluid" id="about"> 
             <div class="row">
                 <div class="col-md-1 offset-md-5 border-top" style=" border-color: #2b369e ; height: 5%; margin-top: 5%; width: 3%; margin-left: 45%; margin-bottom: 5%;"></div>
-                <div class="col-md-12">
+                <div class="col-lg-12">
                     <h1 class="soustitle">ABOUT THE EVENT</h1>
                     <p class="textabout">A unique two-in-one opportunity offering both a hackathon and a series of technical workshops, giving participants the chance to develop, learn new skills and use them to solve real life problems all while meeting amazing like-minded individuals and widening their networks. An opportunity not to be missed!                     </p>
                 </div>
@@ -92,7 +67,7 @@
        <div class="container" id="gallerie">
            <div class="row">
               <div class="col-md-12">
-                <h1 class="soustitle">Gallerie</h1>
+                <h1 class="soustitle">Gallery</h1>
               </div>
               <div class="col-md-12" style="margin-top: 10%; margin-bottom: 5%;">
                 <div class="row">
@@ -161,20 +136,25 @@
             </div>
             <div class="col-md-12" style="background-color: #2b369e; margin-top: 10%; margin-bottom: 2%;">
               <div class="row">
-                <div class="col-md-2 col-12"><img src="resources/images/1.png" class="logosponsor"></div>
-                <div class="col-md-2 col-12"><img src="resources/images/2.png" class="logosponsor"></div>
+                 <div class="col-md-2 col-12"><img src="resources/images/1.jpg" class="logosponsor"></div>
                 <div class="col-md-2 col-12"><img src="resources/images/3.png" class="logosponsor"></div>
-                <div class="col-md-2 col-12"><img src="resources/images/4.png" class="logosponsor"></div>
+                <div class="col-md-2 col-12"><img src="resources/images/4.PNG" class="logosponsor"></div>
                 <div class="col-md-2 col-12"><img src="resources/images/5.png" class="logosponsor"></div>
-                <div class="col-md-2 col-12"><img src="resources/images/6.svg" class="logosponsor"></div>
+                <div class="col-md-2 col-12"><img src="resources/images/6.png" class="logosponsor"></div>
+                <div class="col-md-2 col-12"><img src="resources/images/9.png" class="logosponsor"></div>
+
+
+
+
               </div>
             </div>
             <div class="col-md-12" style="background-color: #2b369e;">
               <div class="row">
-                <div class="col-md-3 col-12"><img src="resources/images/7.png" class="logosponsor"></div>
-                <div class="col-md-3 col-12"><img src="resources/images/8.png" class="logosponsor"></div>
-                <div class="col-md-3 col-12"><img src="resources/images/9.png" class="logosponsor"></div>
-                <div class="col-md-3 col-12"><img src="resources/images/10.png" class="logosponsor"></div>
+                <div class="col-md-2 offset-md-3 col-12"><img src="resources/images/7.png" class="logosponsor"></div>
+                <div class="col-md-2 col-12"><img src="resources/images/8.png" class="logosponsor"></div>
+                <div class="col-md-2 col-12"><img src="resources/images/10.png" class="logosponsor"></div>
+
+
               </div>
             </div>
             <div class="col-md-1 offset-md-5 border-top" style=" border-color: #2b369e ; height: 5%; margin-top: 5%; width: 3%; margin-left: 45%;"></div>
@@ -193,7 +173,7 @@
             @endif
           <div class="row">
             <div class="col-md-6 form" style="margin-top:0%;">
-              <h1 class="soustitle" style="text-align: center; font-size: 2.75em;">BECOME SPONSOR</h1>
+              <h1 class="soustitle" style="text-align: center; font-size: 2.75em;">BECOME A SPONSOR</h1>
               <P class="textsponsor">Want to learn more about how your company can become a partner?
                 Fill out the form and a member of our team will reach out to you!         </P>
 
@@ -258,7 +238,7 @@
                       </div>
                     </div>
                   
-                  <div class="col-md-12 reseau">
+                  <div class="col-lg-12 reseau">
                     <a href="https://www.instagram.com/cyberpink.celec/?fbclid=IwAR2tDhB_ky_PuD-91KFptDteifTHbI_ehAHKzh32r95J8F38HZrb9yk6-3k" target="-blank" class="rs"><span style="color: white;"><i class="fab fa-instagram"></i></span></a>
                     <a href="https://www.facebook.com/cyberpink.celec" class="rs"><span style="color: white;"><i class="fab fa-facebook"  target="-blank"></i></span></a>
                     <a href="https://www.linkedin.com/company/printpic/?fbclid=IwAR3gUeKwafisQmS6BaCmwPCL8CkzS8ldBDTP91JuY_FT4nj4327Jn0Nygfs"  target="-blank" class="rs"><span style="color: white;"><i class="fab fa-linkedin-in"></i></span></a>

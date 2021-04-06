@@ -16,5 +16,8 @@ class HomeController extends Controller {
     public function showHack() {
     	return view("hack");
     }
-
+    
+    public function showChallenges() {
+        return view("challenges");
+    }
 }

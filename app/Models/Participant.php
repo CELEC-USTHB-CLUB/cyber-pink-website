@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Participant extends Model {
     use HasFactory;
-    protected $fillable = ["fullname", "birthdate", "email", "phone_number", "size", "activated"];
+    protected $fillable = ["fullname", "birthdate", "email", "phone_number", "size", "activated", "skills"];
 	public $timestamps = true;
 
 }
