@@ -75,7 +75,7 @@ class Modify extends Component {
         }else {
             $this->solution_type = "other";
         }
-		$users 					= 	json_decode($this->submission->users);
+		$users 					= 	($this->submission->users);
 		$this->selected 		= 	collect([]);
 		foreach($users as $user) {
 			$hacker = Hacker::findOrFail($user);
@@ -184,12 +184,18 @@ class Modify extends Component {
             }else {
                 $this->submission->app()->create(["path" => $this->apk->store("apps")]);
             }
+            if ($this->submission->webapp()->exists()) {
+                $this->submission->webapp()->delete();
+            }
         }elseif ($this->solution_type == "web") {
             if (!is_null($this->preview_link) AND !empty($this->preview_link)) {
                 if ($this->submission->webapp()->exists()) {
                     $this->submission->webapp()->update(["url" => $this->preview_link]);
                 }else {
                     $this->submission->webapp()->create(["url" => $this->preview_link]);
+                }
+                if ($this->submission->app()->exists()) {
+                    $this->submission->app()->delete();
                 }
             }else {
                 if ($this->submission->webapp()->exists()) {

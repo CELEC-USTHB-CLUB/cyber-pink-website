@@ -37,4 +37,5 @@ Route::prefix("admin")->group(function() {
 	Route::get("sponsors", [AdminController::class, "showSponsors"])->middleware("auth");
 	Route::get("organizers", [AdminController::class, "showOrganizers"])->middleware("auth");
 	Route::get("messages", [AdminController::class, "messages"])->middleware("auth");
+	Route::get("submits", [AdminController::class, "submits"])->middleware("auth");
 });

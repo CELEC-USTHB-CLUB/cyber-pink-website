@@ -29,4 +29,8 @@ class Submission extends Model {
     	return $this->hasOne(Webapp::class);
     }
 
+    public function getUsersAttribute($value) {
+        return json_decode($value);
+    }
+
 }

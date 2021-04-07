@@ -44,4 +44,9 @@ class AdminController extends Controller {
     public function messages() {
         return view("admin.messages"); 
     }
+
+    public function submits() {
+        return view("admin.submits");
+    }
+
 }
