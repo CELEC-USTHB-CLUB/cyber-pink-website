@@ -28,6 +28,7 @@ class Modify extends Component {
 	public $images = [];
 	public $document;
     public $solution_type;
+    public $oldSolutionType;
     public $apk;
     public $preview_link;
 
@@ -66,12 +67,18 @@ class Modify extends Component {
 		$this->repo_link 		= 	$this->submission->github_link;
         if($this->submission->app()->exists()) {
             if ($this->submission->webapp()->exists()) {
-                $this->solution_type = "webmobile";
+                $this->solution_type    =   "webmobile";
+                if(!is_null($this->submission->webapp->url)) {
+                    $this->preview_link = $this->submission->webapp->url;
+                }
             }else {
                 $this->solution_type = "app";
             }
         }elseif($this->submission->webapp()->exists()) {
             $this->solution_type = "web";
+            if(!is_null($this->submission->webapp->url)) {
+                $this->preview_link = $this->submission->webapp->url;
+            }
         }else {
             $this->solution_type = "other";
         }
@@ -105,6 +112,7 @@ class Modify extends Component {
     	if (is_null($this->search) OR empty($this->search) OR $this->search == "") {
 			$this->showR = false;
 		}
+        $this->oldSolutionType = $this->solution_type;
         return view('livewire.modify');
     }
 
@@ -133,9 +141,11 @@ class Modify extends Component {
     		array_push($selected, $data["id"]);
     	}
         if ($this->solution_type == "app") {
-            $this->validate([
-                "apk" => "mimes:zip,rar|required|max:100000"
-            ]);
+            if (!$this->submission->app()->exists()) {
+                $this->validate([
+                    "apk" => "mimes:zip,rar|required|max:100000"
+                ]);
+            }
         }elseif ($this->solution_type == "web") {
             if (is_null($this->preview_link) OR empty($this->preview_link)) {
                 $this->validate([
@@ -147,9 +157,11 @@ class Modify extends Component {
                 ]);
             }
         }elseif ($this->solution_type == "webmobile") {
-            $this->validate([
-                "apk" => "mimes:zip,rar|required|max:100000"
-            ]);
+            if (!$this->submission->app()->exists()) {
+                $this->validate([
+                    "apk" => "mimes:zip,rar|required|max:100000"
+                ]);
+            }
             if (is_null($this->preview_link) OR empty($this->preview_link)) {
                 $this->validate([
                     "repo_link" => "required|url|active_url"
@@ -180,7 +192,9 @@ class Modify extends Component {
     	}
         if ($this->solution_type == "app") {
             if ($this->submission->app()->exists()) {
-                $this->submission->app()->update(["path" => $this->apk->store("apps")]);
+                if (!is_null($this->apk)) {
+                    $this->submission->app()->update(["path" => $this->apk->store("apps")]);
+                }
             }else {
                 $this->submission->app()->create(["path" => $this->apk->store("apps")]);
             }
@@ -188,14 +202,14 @@ class Modify extends Component {
                 $this->submission->webapp()->delete();
             }
         }elseif ($this->solution_type == "web") {
+            if ($this->submission->app()->exists()) {
+                $this->submission->app()->delete();
+            }
             if (!is_null($this->preview_link) AND !empty($this->preview_link)) {
                 if ($this->submission->webapp()->exists()) {
                     $this->submission->webapp()->update(["url" => $this->preview_link]);
                 }else {
                     $this->submission->webapp()->create(["url" => $this->preview_link]);
-                }
-                if ($this->submission->app()->exists()) {
-                    $this->submission->app()->delete();
                 }
             }else {
                 if ($this->submission->webapp()->exists()) {
@@ -206,7 +220,9 @@ class Modify extends Component {
             }
         }elseif($this->solution_type == "webmobile") {
             if ($this->submission->app()->exists()) {
-                $this->submission->app()->update(["path" => $this->apk->store("apps")]);
+                if (!is_null($this->apk)) {
+                    $this->submission->app()->update(["path" => $this->apk->store("apps")]);
+                }
             }else {
                 $this->submission->app()->create(["path" => $this->apk->store("apps")]);
             }

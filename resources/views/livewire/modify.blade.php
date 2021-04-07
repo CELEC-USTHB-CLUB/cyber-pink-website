@@ -1,4 +1,4 @@
-<div class="row" x-data="submit()">
+<div class="row" x-data="submit()" wire:loading.class="disabled" wire:target="apk,images,document">
 
 	<div class="modal fade bd-example-modal-lg imageModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-lg">
@@ -53,7 +53,7 @@
 					    </div>
 					    @if(!is_null($hackers))
 					    	@if($hackers->isEmpty())
-					    		<h4>This user not found 😕</h4>
+					    		<h4 wire:loading.remove wire:target="hackers">This user not found 😕</h4>
 					    	@else
 						    	@foreach($hackers as $hacker)
 							    	<h5 wire:key="{{$hacker->id}}">
@@ -100,7 +100,14 @@
 				</div>
 					<div x-show="solutionType == 1 || solutionType == 3">
 						<br/>
-						<label for="exampleInputEmail1"><h3>Upload your compressed APK</h3></label>
+						<label for="exampleInputEmail1">
+							<h3>
+								Upload your compressed APK
+								@if($oldSolutionType == "app" OR $oldSolutionType == "webmobile")
+									<a href="{{ url('storage/app/') }}/{{$submission->app->path}}">Download your app</a>
+								@endif
+							</h3>
+						</label>
 						<br/>
 			            <input wire:model="apk" class="form-control" type="file" style="background-color: transparent !important; height: 50px;" id="exampleInputEmail1" aria-describedby="emailHelp">
 			            <small>Allowed: zip, rar.</small>
@@ -224,6 +231,20 @@
 		    </div>
 		@endif
 	</div>
+	<style>
+		.disabled {
+		    pointer-events: none;
+		}
+		.disabled input {
+		    pointer-events: none;
+	        border: 1px solid grey !important;
+	        background-color: #bfbdbd !important;
+		}
+		.disabled textarea {
+		    pointer-events: none;
+	        border: 1px solid grey !important;
+		}
+	</style>
 </div>
 @push("scripts")
 	<script type="text/javascript">

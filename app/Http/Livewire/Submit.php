@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Hacker;
 use App\Models\Submission;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Artisan;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -26,7 +27,6 @@ class Submit extends Component {
     public $solution_type;
     public $apk;
     public $preview_link;
-
 	protected $rules = [
         'project_title' => 'required|min:1|unique:submissions,project_name',
         'team_name' => 'required|min:1|unique:submissions,team',
@@ -159,11 +159,15 @@ class Submit extends Component {
         }elseif ($this->solution_type == "web") {
             if (!is_null($this->preview_link) AND !empty($this->preview_link)) {
                 $s->webapp()->create(["url" => $this->preview_link]);
+            }else {
+                $s->webapp()->create(["url" => null]);
             }
         }elseif($this->solution_type == "webmobile") {
             $s->app()->create(["path" => $this->apk->store("apps")]);
             if (!is_null($this->preview_link) AND !empty($this->preview_link)) {
                 $s->webapp()->create(["url" => $this->preview_link]);
+            }else {
+                $s->webapp()->create(["url" => null]);
             }
         }
     	session()->flash('saved', 'Your projet has been successfully submitted.

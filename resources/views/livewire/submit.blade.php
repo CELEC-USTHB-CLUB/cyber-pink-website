@@ -1,4 +1,4 @@
-<div class="row" x-data="submit()">
+<div class="row" x-data="submit()" wire:loading.class="disabled" wire:target="apk,images,document">
     <div class="col col-12 align-self-center">
     	<div>
 	    	@if ($errors->any())
@@ -14,15 +14,16 @@
         <form style="color:white !important;" enctype="multipart/form-data"  wire:submit.prevent="submit">
 	        <div class="form-group">
 	            <label for="exampleInputEmail1"><h3>Project title</h3></label>
-	            <input wire:model.lazy="project_title" type="text" class="form-control submitInput" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your project title (slogan)">
+	            <input wire:loading.attr="disabled" wire:model.lazy="project_title" type="text" class="form-control submitInput" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your project title (slogan)">
 	        </div>
 	        <div class="form-group">
 	            <label for="exampleInputEmail1"><h3>Team name</h3></label>
-	            <input wire:model.lazy="team_name" type="text" class="form-control submitInput" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your project title (slogan)">
+	            <input wire:loading.attr="disabled" wire:model.lazy="team_name" type="text" class="form-control submitInput" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your project title (slogan)">
 	        </div>
 	        <div class="form-group">
 	            <label for="exampleInputEmail1"><h3>Selected challenge</h3></label>
 	            <select class="custom-select" wire:model.lazy="challenge">
+	             <option selected="selected" >Selected challenge</option>
 				  <option value="1">1-Improving people’s healthcare quality</option>
 				  <option value="2">2-Easy access tools for reporting violence</option>
 				  <option value="3">3-Aiding platforms for people in need</option>
@@ -31,7 +32,7 @@
 	        </div>
 	        <div class="form-group">
 	            <label for="exampleInputEmail1"><h3>Team members <strong>(don't forget yourself)</strong></h3></label>
-	            <input autocomplete="off" x-on:input="showR=true" wire:model.debounce="search" type="text" class="form-control submitInput" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search by email">
+	            <input wire:loading.attr="disabled" autocomplete="off" x-on:input="showR=true" wire:model.debounce="search" type="text" class="form-control submitInput" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search by email">
 	            <div x-show="showR" class="w-100 p-4 searchresults">
 	            	<div class="row">
 	            		<div wire:loading wire:target="search">
@@ -46,7 +47,7 @@
 					    @if(!is_null($hackers))
 					    	@if($hackers->isEmpty())
 					    		<center>
-						    		<h4>This user not found 😕</h4>					    			
+						    		<h4 wire:loading.remove wire:target="hackers">This user not found 😕</h4>					    			
 					    		</center>
 					    	@else
 						    	@foreach($hackers as $hacker)
@@ -77,26 +78,26 @@
 	            <label for="exampleInputEmail1"><h3>Your solution is: </h3></label>
 	            <br/>
 	            <div class="custom-control custom-radio custom-control-inline">
-				  <input x-on:click="solutionType = 1" wire:model="solution_type" value="app" type="radio" id="customRadioInline1" name="customRadioInline" class="custom-control-input">
+				  <input wire:loading.attr="disabled" x-on:click="solutionType = 1" wire:model="solution_type" value="app" type="radio" id="customRadioInline1" name="customRadioInline" class="custom-control-input">
 				  <label class="custom-control-label" for="customRadioInline1">Mobile app</label></label>
 				</div>
 				<div class="custom-control custom-radio custom-control-inline">
-				  <input x-on:click="solutionType = 2" wire:model="solution_type" value="web" type="radio" id="customRadioInline2" name="customRadioInline" class="custom-control-input">
+				  <input wire:loading.attr="disabled" x-on:click="solutionType = 2" wire:model="solution_type" value="web" type="radio" id="customRadioInline2" name="customRadioInline" class="custom-control-input">
 				  <label class="custom-control-label" for="customRadioInline2">Web app</label></label>
 				</div>
 				<div class="custom-control custom-radio custom-control-inline">
-				  <input x-on:click="solutionType = 3" wire:model="solution_type" value="webmobile" type="radio" id="customRadioInline3" name="customRadioInline" class="custom-control-input">
+				  <input wire:loading.attr="disabled" x-on:click="solutionType = 3" wire:model="solution_type" value="webmobile" type="radio" id="customRadioInline3" name="customRadioInline" class="custom-control-input">
 				  <label class="custom-control-label" for="customRadioInline3">(Mobile + web)</label></label>
 				</div>
 				<div class="custom-control custom-radio custom-control-inline">
-				  <input x-on:click="solutionType = 4" wire:model="solution_type" value="other" type="radio" id="customRadioInline4" name="customRadioInline" class="custom-control-input">
+				  <input wire:loading.attr="disabled" x-on:click="solutionType = 4" wire:model="solution_type" value="other" type="radio" id="customRadioInline4" name="customRadioInline" class="custom-control-input">
 				  <label class="custom-control-label" for="customRadioInline4">Other</label></label>
 				</div>
 					<div x-show="solutionType == 1 || solutionType == 3">
 						<br/>
 						<label for="exampleInputEmail1"><h3>Upload your compressed APK</h3></label>
 						<br/>
-			            <input wire:model="apk" class="form-control" type="file" style="background-color: transparent !important; height: 50px;" id="exampleInputEmail1" aria-describedby="emailHelp">
+			            <input wire:loading.attr="disabled" wire:model="apk" class="form-control" type="file" style="background-color: transparent !important; height: 50px;" id="exampleInputEmail1" aria-describedby="emailHelp">
 			            <small>Allowed: zip, rar.</small>
 			            <div wire:loading wire:target="apk">
 				        	<strong>Uploading your apk ... </strong>
@@ -114,7 +115,7 @@
 							  <span class="sr-only">Loading...</span>
 							</div>
 						</div>
-			            <input wire:model="preview_link" type="text" class="form-control submitInput" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="preview link">
+			            <input wire:loading.attr="disabled" wire:model="preview_link" type="text" class="form-control submitInput" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="preview link">
 			            <div class="alert alert-warning mt-2" role="alert">
 			            	<strong>
 			            		If no preview link is available, please write a documentation on the repository page (in github) to clarify:
@@ -137,7 +138,7 @@
 	        <div class="form-group">
 	            <label for="exampleInputEmail1"><h3>Description <a x-on:click.prevent="" data-toggle="popover" data-content="minimum length allowed is 150 characters"><i class="fa fa-info-circle"></i></a></h3></label>
 	            <br/>
-	            <textarea wire:model.defer="description" class="w-100" style="background-color: transparent !important; color:white !important; border: 3px solid #2b369e !important;"></textarea>
+	            <textarea wire:loading.attr="disabled" wire:model.defer="description" class="w-100" style="background-color: transparent !important; color:white !important; border: 3px solid #2b369e !important;"></textarea>
 	        </div>
 	        <div class="form-group">
 	            <label for="exampleInputEmail1"><h3>Video link (http://www.)</h3></label>
@@ -147,7 +148,7 @@
 					  <span class="sr-only">Loading...</span>
 					</div>
 				</div>
-	            <input wire:model="video_link" type="text" class="form-control submitInput" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="video link">
+	            <input wire:loading.attr="disabled" wire:model="video_link" type="text" class="form-control submitInput" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="video link">
 	        </div>
 	        <div class="form-group">
 	            <label for="exampleInputEmail1"><h3>The repository link (github) (http://www.)</h3></label>
@@ -157,12 +158,12 @@
 					  <span class="sr-only">Loading...</span>
 					</div>
 				</div>
-	            <input wire:model="repo_link" type="text" class="form-control submitInput" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="repository link">
+	            <input wire:loading.attr="disabled" wire:model="repo_link" type="text" class="form-control submitInput" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="repository link">
 	        </div>
 	        
 	        <div class="form-group">
 	            <label for="exampleInputEmail1"><h3>Images</h3></label>
-	            <input wire:model="images" multiple="true" class="form-control" type="file" style="background-color: transparent !important; height: 50px;" id="exampleInputEmail1" aria-describedby="emailHelp">
+	            <input wire:loading.attr="disabled" wire:model="images" multiple="true" class="form-control" type="file" style="background-color: transparent !important; height: 50px;" id="exampleInputEmail1" aria-describedby="emailHelp">
 	            <small>Allowed: jpg, png, jpeg.</small>
 	            <div wire:loading wire:target="images">
 		        	<strong>Uploading the images ... </strong>
@@ -173,7 +174,7 @@
 	        </div>
 	        <div class="form-group">
 	            <label for="exampleInputEmail1"><h3>Attached documents</h3></label>
-	            <input wire:model="document" class="form-control" type="file" style="background-color: transparent !important; height: 50px;" id="exampleInputEmail1" aria-describedby="emailHelp">
+	            <input wire:loading.attr="disabled" wire:model="document" class="form-control" type="file" style="background-color: transparent !important; height: 50px;" id="exampleInputEmail1" aria-describedby="emailHelp">
 	            <small>Allowed: pdf, docx.</small>
 	            <div wire:loading wire:target="document">
 		        	<strong>Uploading your document ... </strong>
@@ -208,6 +209,21 @@
 	        @endif
     	</div>
 	</div>
+	<style>
+	.disabled {
+	    pointer-events: none;
+	    
+	}
+	.disabled input {
+	    pointer-events: none;
+        border: 1px solid grey !important;
+        background-color: #bfbdbd !important;
+	}
+	.disabled textarea {
+	    pointer-events: none;
+        border: 1px solid grey !important;
+	}
+	</style>
 </div>
 @push("scripts")
 	<script type="text/javascript">
